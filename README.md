@@ -22,22 +22,31 @@ Follow these steps to get started with Microservice_Project and leverage its enh
 Clone the Repository:
 
 bash
+
 Copy code
+
 git clone https://github.com/Akash8599/microservice_project.git
+
 cd microservice_project
+
 Configure Microservices:
+
 Customize the configuration files to align with your architecture. Update Eureka, Okta, and Resilience4j configurations for seamless integration.
 
 Build and Run:
 
 bash
 Copy code
+
 ./gradlew build
+
 ./gradlew bootRun
+
 Explore API Gateway:
+
 Access the API Gateway at http://localhost:8080 in your browser.
 
 Secure Endpoints:
+
 Experiment with secure endpoints protected by Okta security. Observe the resilience features in action, ensuring your microservices adapt and respond intelligently to varying conditions.
 
-Contribute
