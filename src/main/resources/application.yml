@@ -2,12 +2,13 @@ server:
   port: 8081
 
 spring:
+  application:
+    name: USER-SERVICE
   datasource:
     url: jdbc:mysql://localhost:3306/microservices
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
-
   jpa:
     hibernate:
       ddl-auto: update
@@ -16,6 +17,80 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
 
+  # This is used to config server, so we can use application yaml data from GitHub server using this config
+  config:
+    import: configserver:http://localhost:8085
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-52003550.okta.com/oauth2/default
+      client:
+        registration:
+          my-internal-client:
+            provider: okta
+            authorizationGrantType: client_credentials
+            scope: internal
+            client-id: 0oae68itiuqa7PLSQ5d7
+            client-secret: sj3xi_wm1dT58uVTwHi1EnAMgVPLvx_mHYLzgGbLn1lMebV4ITBCp9Wx8vgOcJC8
+        provider:
+          okta:
+            issuerUri: https://dev-52003550.okta.com/oauth2/default
+
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
 
 
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+    ratelimiters:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
 
+resilience4j:
+  circuitbreaker:
+    instances:
+      ratingHotelBreaker:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 6s
+        permittedNumberOfCallsInHalfOpenState: 2
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+#  Retry configuration
+  retry:
+    instances:
+      ratingHotelBreaker:
+        maxAttempts: 3
+        waitDuration: 5s
+
+  ratelimiter:
+    instances:
+      userRateLimiter:
+        limitRefreshPeriod: 4s
+        limitForPeriod: 3
+        timeoutDuration: 0s
+
+# It contains configuration settings for Okta OAuth2 authentication.
+okta:
+  oauth2:
+    issuer: https://dev-52003550.okta.com/oauth2/default
+    audience: api://default
