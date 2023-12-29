@@ -56,6 +56,11 @@ public class UserController {
 
         return ResponseEntity.ok(users);
     }
+
+    @DeleteMapping("/{userId}")
+    public void deleteById(@PathVariable String userId){
+        userService.delete(userId);
+    }
     //creating fall back method for circuit breaker
     public ResponseEntity<User> ratingHotelFallback(String userId, Exception ex){
         logger.info("Fallback is executed because service is down : {}", ex.getMessage());

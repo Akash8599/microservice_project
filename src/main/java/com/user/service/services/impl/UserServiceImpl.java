@@ -67,6 +67,8 @@ public class UserServiceImpl implements UserService {
                     data.setRatings(ratingsList);
                 })
                 .collect(Collectors.toList());
+        logger.info("Retrieved {} users with ratings and hotels", userList.size());
+
 
         return userList;
     }
@@ -111,6 +113,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void delete(String userId) {
+        userRepository.deleteById(userId);
+        logger.info("User with ID {} has been deleted", userId);
 
     }
 }
