@@ -1,0 +1,16 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: CONFIG-SERVER
+
+# The code specifies the configuration server to use Git as the source for configuration files.
+# It sets the URI to the GitHub repository "https://github.com/Akash8599/microserces_config_files" and enables cloning of the repository on server start.
+
+cloud:
+  config:
+    server:
+      git:
+        uri: https://github.com/Akash8599/microserces_config_files
+        clone-on-start: true
