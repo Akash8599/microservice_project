@@ -1,20 +1,23 @@
 Microservice_Project
-Welcome to the Microservice Project repository! This project is a comprehensive exploration of microservices architecture, featuring dynamic service discovery with Eureka, robust security integration with Okta, and seamless communication between microservices.
+
+Welcome to Microservice_Project, an advanced microservices architecture that seamlessly integrates Eureka service registry, Okta security, and now, with enhanced resilience features using Resilience4j. This project is a testament to the power of distributed systems, robust security, and intelligent resilience patterns, ensuring your microservices ecosystem operates with unparalleled reliability.
 
 Overview
 
-Microservice_Project is designed to showcase the power of distributed systems, service discovery, and security in a cloud-native environment. Dive into a world where Eureka orchestrates service registration and discovery, Okta fortifies your microservices against unauthorized access, and efficient communication ties it all together.
+Microservice_Project is not just about microservices—it's about resilient microservices. Dynamic service discovery with Eureka, fortified security through Okta, and now, enhanced resilience using Resilience4j, this project is a comprehensive solution for building a robust and adaptive microservices architecture.
 
-Features
+Key Features
 
-Dynamic Service Discovery: Utilize Eureka to dynamically register and discover microservices, fostering flexibility and scalability.
+Dynamic Service Discovery with Eureka: Leverage Eureka's dynamic service registration and discovery to create a flexible and scalable microservices network.
 
-Robust Okta Security: Integrate Okta for secure authentication and authorization, ensuring data integrity and user privacy.
+Robust Okta Security: Integrate Okta for secure authentication and authorization, safeguarding your microservices against unauthorized access and ensuring data integrity.
 
-Effortless Microservices Communication: Witness seamless communication patterns that enhance overall system resilience and responsiveness.
+Enhanced Resilience with Resilience4j:
 
+Retry Mechanism: Intelligently handle transient failures with a robust retry mechanism. Configure parameters like retry interval and maximum attempts to tailor the retry behavior to your microservices' needs.
+Circuit Breaker: Safeguard against system failures by proactively opening the circuit when necessary. Experience a graceful degradation of functionality during outages, preventing cascading failures.
 Getting Started
-Follow these steps to get started with Microservice_Project:
+Follow these steps to get started with Microservice_Project and leverage its enhanced resilience features:
 
 Clone the Repository:
 
@@ -23,7 +26,7 @@ Copy code
 git clone https://github.com/Akash8599/microservice_project.git
 cd microservice_project
 Configure Microservices:
-Customize the configuration files to align with your architecture. Update Eureka and Okta configurations for seamless integration.
+Customize the configuration files to align with your architecture. Update Eureka, Okta, and Resilience4j configurations for seamless integration.
 
 Build and Run:
 
@@ -35,4 +38,6 @@ Explore API Gateway:
 Access the API Gateway at http://localhost:8080 in your browser.
 
 Secure Endpoints:
-Experiment with secure endpoints protected by Okta security. Understand the flow of authentication and authorization in a microservices environment.
+Experiment with secure endpoints protected by Okta security. Observe the resilience features in action, ensuring your microservices adapt and respond intelligently to varying conditions.
+
+Contribute
