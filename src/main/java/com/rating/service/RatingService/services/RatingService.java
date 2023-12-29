@@ -14,6 +14,8 @@ public interface RatingService {
 
     List<Rating> getRatingByHotelId(String hotelId);
 
+    void deleteById(String hotelId);
+
 
 
 }

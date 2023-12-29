@@ -2,6 +2,8 @@ package com.rating.service.RatingService.controller;
 
 import com.rating.service.RatingService.entities.Rating;
 import com.rating.service.RatingService.services.RatingService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,7 @@ import java.util.List;
 @RequestMapping("/ratings")
 public class RatingController {
 
+    Logger logger = LoggerFactory.getLogger(RatingController.class);
     @Autowired
     private RatingService ratingService;
 
@@ -54,6 +57,7 @@ public class RatingController {
      */
     @GetMapping("/users/{userId}")
     public ResponseEntity<List<Rating>> getRatingsByUserId(@PathVariable String userId){
+        logger.info("Retrieving ratings for user with ID: {}", userId);
         return ResponseEntity.ok(ratingService.getRatingByUserId(userId));
     }
 
@@ -66,7 +70,14 @@ public class RatingController {
      */
     @GetMapping("/hotels/{hotelId}")
     public ResponseEntity<List<Rating>> getRatingsByHotelId(@PathVariable String hotelId){
+        logger.info("Retrieving ratings for hotel with ID: {}", hotelId);
         return ResponseEntity.ok(ratingService.getRatingByHotelId(hotelId));
+    }
+
+    @DeleteMapping("/{ratingId}")
+    public void deleteById(@PathVariable String ratingId){
+        logger.info("Retrieving ratings for rating with ID: {}", ratingId);
+        ratingService.deleteById(ratingId);
     }
 
 }
