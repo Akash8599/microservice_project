@@ -1,6 +1,9 @@
 server:
   port: 8761
 
+# This YAML configuration file sets the Eureka client properties.
+# It disables the registration and fetching of the Eureka server registry.
+# The hostname for the Eureka instance is set to localhost.
 eureka:
   instance:
     hostname: localhost
