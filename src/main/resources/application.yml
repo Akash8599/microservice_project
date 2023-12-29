@@ -23,6 +23,9 @@ spring:
             - Path=/hotels/**, /staffs/**
 
 
+# This is a YAML configuration file for Eureka client settings.
+# It specifies the Eureka server's URL and enables service registry and discovery.
+# It will help to call other microservices
 eureka:
   instance:
     prefer-ip-address: true
@@ -31,3 +34,14 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+#  okta configuration for api gateway
+#  This is a configuration file for Okta.It specifies the issuer, audience, client ID, client secret, and scopes for the OAuth 2.0 client.
+
+okta:
+  oauth2:
+    issuer: https://dev-52003550.okta.com/oauth2/default
+    audience: api://default
+    client-id: 0oae68itiuqa7PLSQ5d7
+    client-secret: sj3xi_wm1dT58uVTwHi1EnAMgVPLvx_mHYLzgGbLn1lMebV4ITBCp9Wx8vgOcJC8
+    scopes: openid, profile, offline_access, email

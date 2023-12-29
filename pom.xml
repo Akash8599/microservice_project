@@ -56,6 +56,17 @@
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+<!--		we need web-flux dependency if we are using spring security cloud gateway-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.okta.spring</groupId>
+			<artifactId>okta-spring-boot-starter</artifactId>
+			<version>3.0.6</version>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
